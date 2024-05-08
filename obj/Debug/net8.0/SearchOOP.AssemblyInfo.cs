@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SearchOOP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ba2f1adf56f0659136f55c315bd6d50e247310c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb9b0c5e373279f09a26a5db55850495d91b73af")]
 [assembly: System.Reflection.AssemblyProductAttribute("SearchOOP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SearchOOP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

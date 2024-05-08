@@ -10,6 +10,8 @@ namespace SearchOOP.Controllers
     public class CollegeController
     {
         private College college;
+        private Course courses;
+        private Teacher teachers;
 
         public CollegeController(College college)
         {
@@ -138,11 +140,11 @@ namespace SearchOOP.Controllers
                         break;
 
                     case "5":
-                        college.DisplayTeachers();
+                        courses.DisplayTeachers();
                         break;
 
                     case "6":
-                        college.DisplayCourses();
+                        teachers.DisplayCourses();
                         break;
 
                     case "7":

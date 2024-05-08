@@ -6,7 +6,30 @@ using System.Threading.Tasks;
 
 namespace SearchOOP.Models
 {
-    internal class Subjects
+    public class Subject
     {
+        private int id;
+        private string name;
+
+
+
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public Subject(int id, string name)
+        {
+            this.Id = id;
+            this.Name = name;
+        }
     }
 }

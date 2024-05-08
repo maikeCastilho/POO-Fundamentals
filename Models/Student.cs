@@ -46,9 +46,5 @@ namespace SearchOOP.Models
             this.Email = email;
 
         }
-
-
-
-
     }
 }

@@ -26,3 +26,4 @@ C:\Users\Allcateia - Maike\Documents\SearchOOP\SearchOOP\obj\Debug\net8.0\refint
 C:\Users\Allcateia - Maike\Documents\SearchOOP\SearchOOP\obj\Debug\net8.0\SearchOOP.pdb
 C:\Users\Allcateia - Maike\Documents\SearchOOP\SearchOOP\obj\Debug\net8.0\SearchOOP.genruntimeconfig.cache
 C:\Users\Allcateia - Maike\Documents\SearchOOP\SearchOOP\obj\Debug\net8.0\ref\SearchOOP.dll
+C:\Users\Allcateia - Maike\Documents\SearchOOP\SearchOOP\obj\Debug\net8.0\SearchOOP.sourcelink.json

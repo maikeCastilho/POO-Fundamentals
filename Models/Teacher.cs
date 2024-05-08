@@ -8,12 +8,10 @@ namespace SearchOOP.Models
 {
     public class Teacher
     {
-        //Atributos
-        public int id;
-        public string name;
+        private int id;
+        private string name;
         private List<Course> courses;
 
-        //accessor method
         public int Id
         {
             get { return id; }
@@ -49,6 +47,27 @@ namespace SearchOOP.Models
         {
             courses.Remove(course);
         }
+
+        public void DisplayCourses()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Courses:");
+            if (courses.Any())
+            {
+                foreach (var course in courses)
+                {
+                    Console.WriteLine($"ID: {course.Id}, Name: {course.Name}");
+
+                }
+                Console.WriteLine("");
+            }
+
+            else
+            {
+                Console.WriteLine("No courses avaliable");
+                Console.WriteLine("");
+
+            }
+        }
     }
 }
-

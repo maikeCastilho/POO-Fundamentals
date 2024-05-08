@@ -1,5 +1,5 @@
-﻿using SearchOOP.Models;
-using SearchOOP.Controllers;
+﻿using SearchOOP.Controllers;
+using SearchOOP.Models;
 using System;
 using System.Collections.Generic;
 using System.IO.Compression;
