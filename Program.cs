@@ -14,15 +14,10 @@ namespace SearchOOP
     {
         static void Main(string[] args)
         {
-
             College college = new College("Unifoa");
             CollegeController collegeController = new CollegeController(college);
 
             collegeController.Run();
-
-            
-
-
         }
     }
 }

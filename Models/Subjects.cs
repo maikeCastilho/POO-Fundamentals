@@ -11,9 +11,6 @@ namespace SearchOOP.Models
         private int id;
         private string name;
 
-
-
-
         public int Id
         {
             get { return id; }

@@ -47,27 +47,5 @@ namespace SearchOOP.Models
         {
             courses.Remove(course);
         }
-
-        public void DisplayCourses()
-        {
-            Console.WriteLine("");
-            Console.WriteLine("Courses:");
-            if (courses.Any())
-            {
-                foreach (var course in courses)
-                {
-                    Console.WriteLine($"ID: {course.Id}, Name: {course.Name}");
-
-                }
-                Console.WriteLine("");
-            }
-
-            else
-            {
-                Console.WriteLine("No courses avaliable");
-                Console.WriteLine("");
-
-            }
-        }
     }
 }

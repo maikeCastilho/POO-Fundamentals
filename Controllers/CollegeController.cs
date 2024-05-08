@@ -10,8 +10,7 @@ namespace SearchOOP.Controllers
     public class CollegeController
     {
         private College college;
-        private Course courses;
-        private Teacher teachers;
+        
 
         public CollegeController(College college)
         {
@@ -26,7 +25,8 @@ namespace SearchOOP.Controllers
             Console.WriteLine("1. Cadastrar Aluno      |  4. Exibir Alunos");
             Console.WriteLine("2. Cadastrar Professor  |  5. Exibir Professores");
             Console.WriteLine("3. Cadastrar Curso      |  6. Exibir Cursos");
-            Console.WriteLine("7. Sair");
+            Console.WriteLine("7. Remover Curso");
+            Console.WriteLine("8. Sair");
             Console.WriteLine("-------------------------------------------------");
             Console.WriteLine("");
         }
@@ -53,40 +53,47 @@ namespace SearchOOP.Controllers
         }
 
         // Método para cadastrar um professor
-        private void RegisterProfessor()
+        private void RegisterTeachers()
         {
             Console.WriteLine("");
-            Console.WriteLine("Informe os dados do professor: ");
-            Console.WriteLine("ID: ");
-            int id = int.Parse(Console.ReadLine());
-            Console.WriteLine("Nome: ");
-            string name = Console.ReadLine();
+            Console.WriteLine("Informe quantos professores você deseja adicionar:");
+            int numTeachers = int.Parse(Console.ReadLine());
 
+            List<Teacher> newTeachers = new List<Teacher>();
 
-            Teacher professor = new Teacher(id, name);
+            for (int i = 0; i < numTeachers; i++)
+            {
+                Console.WriteLine($"Informe os dados do professor {i + 1}:");
+                Console.Write("ID: ");
+                int id = int.Parse(Console.ReadLine());
+                Console.Write("Nome: ");
+                string name = Console.ReadLine();
 
-            college.AddTeacher(professor);
-            Console.WriteLine("Professor cadastrado com sucesso!");
-            Console.WriteLine("");
+                Teacher teacher = new Teacher(id, name);
+                newTeachers.Add(teacher);
+            }
 
-            Console.WriteLine("Selecione um curso para associar ao professor:");
+            Console.WriteLine("Selecione um curso para associar aos professores:");
             college.DisplayCourses();
             Console.Write("ID do curso: ");
             int courseId = int.Parse(Console.ReadLine());
 
-
             Course selectedCourse = college.Courses.FirstOrDefault(c => c.Id == courseId);
             if (selectedCourse != null)
             {
-                // Adicionar o professor ao curso selecionado
-                college.AddTeacherToCourse(professor, selectedCourse);
-                Console.WriteLine("Professor associado ao curso com sucesso!");
+                // Adicionar cada professor ao curso selecionado
+                foreach (var teacher in newTeachers)
+                {
+                    selectedCourse.AddTeacher(teacher);
+                    college.Teachers.Add(teacher);
+                    college.AddTeacherToCourse(teacher, selectedCourse);
+                }
+                Console.WriteLine("Professores associados ao curso com sucesso!");
             }
             else
             {
                 Console.WriteLine("Curso não encontrado.");
             }
-
         }
 
         // Método para cadastrar um curso
@@ -102,7 +109,25 @@ namespace SearchOOP.Controllers
             Course course = new Course(id, name);
 
             college.AddCourse(course);
+        }
 
+        private void RemoveCourse()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Informe o ID do curso que você deseja remover:");
+            int courseId = int.Parse(Console.ReadLine());
+
+            Course selectedCourse = college.Courses.FirstOrDefault(c => c.Id == courseId);
+            if (selectedCourse != null)
+            {
+                // Remover o curso selecionado
+                college.RemoveCourse(selectedCourse);
+                Console.WriteLine("Curso removido com sucesso!");
+            }
+            else
+            {
+                Console.WriteLine("Curso não encontrado.");
+            }
         }
 
         // Método principal para executar o sistema
@@ -128,7 +153,7 @@ namespace SearchOOP.Controllers
                         break;
 
                     case "2":
-                        RegisterProfessor();
+                        RegisterTeachers();
                         break;
 
                     case "3":
@@ -140,14 +165,16 @@ namespace SearchOOP.Controllers
                         break;
 
                     case "5":
-                        courses.DisplayTeachers();
+                        college.DisplayTeachersWithCourses();
                         break;
 
                     case "6":
-                        teachers.DisplayCourses();
+                        college.DisplayCourses();
                         break;
-
                     case "7":
+                        RemoveCourse();
+                        break;
+                    case "8":
                         running = false; // Sair do loop e encerrar o programa
                         break;
 

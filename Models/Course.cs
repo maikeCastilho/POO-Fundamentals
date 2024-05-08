@@ -36,6 +36,7 @@ namespace SearchOOP.Models
             this.Id = id;
             this.Name = name;
             this.Subjects = new List<Subject>();
+            this.teachers = new List<Teacher>();
         }
 
         public void AddMateria(Subject subject)
@@ -82,40 +83,6 @@ namespace SearchOOP.Models
             else
             {
                 Console.WriteLine("No materias associated.");
-                Console.WriteLine("");
-            }
-        }
-
-        public void DisplayTeachers()
-        {
-            Console.WriteLine("");
-            Console.WriteLine("Teachers:");
-
-            if (teachers.Count > 0)
-            {
-
-                foreach (var teacher in teachers)
-                {
-
-                    // Verificar se o professor está associado a algum curso
-                    if (teacher.Courses.Any())
-                    {
-                        foreach (var course in teacher.Courses)
-                        {
-                            Console.WriteLine($"Name: {teacher.Name} - Course: {course.Name}");
-                        }
-                        Console.WriteLine("");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Name: {teacher.Name}");
-                    }
-                    Console.WriteLine(""); // Adicionar uma linha em branco para separar os professores
-                }
-            }
-            else
-            {
-                Console.WriteLine("No teachers associated.");
                 Console.WriteLine("");
             }
         }
